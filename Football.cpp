@@ -1,28 +1,35 @@
 #include<bits/stdc++.h>
 #define ll long long int
 using namespace std;
-
-
-
 int main(){
-    ll p=1;
-   string s;
-   cin>>s;
-   for(ll i=0;i<s.size();i++){
-      if(s[i]==s[i+1]){
-        p++;
-        if(p==7){
-            cout<<"YES"<<endl;
-            return 0;
-        }
-      }else{
-         p=1;
-      }
+   ll n,p=1,q=0;
+   cin>>n;
+   vector<string>vs(n);
 
-   }
 
-cout<<"NO"<<endl;
+     cin.ignore();
+    for(int i=0;i<n;i++){
+        getline(cin, vs[i]);
+    }
+    sort(vs.begin(),vs.end());
 
-   }
+    string t=vs[0];
+    for(int i=0;i<n;i++){
+       if(vs[i]==t){
+         p++;
+       }
+       else{
+        q++;
+       }
+    }
+    if(p>q){
+      cout<<vs[0];
+    }else{
+      cout<<vs[n-1];
+    }
+
+
+}
+
 
 
